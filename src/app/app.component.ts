@@ -13,6 +13,7 @@ export class AppComponent {
 
   public transfertoBin(){
     this.bin = ((this.decimal >>> 0).toString(2))
+
   }
 
 }
