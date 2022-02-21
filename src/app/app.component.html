@@ -2,7 +2,8 @@
   <br> {{title}}
   <br><br>
 
-  dec: &ensp; &nbsp; <input>
+
+dec: &ensp; &nbsp; <input [(ngModel)]="decimal" (change)="transfertoBin()">
 
   <br><br>
   <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7</a>
@@ -16,12 +17,12 @@
   <br>
 
   bin: &nbsp; <input type="checkbox">
-              <input type="checkbox">
-              <input type="checkbox">
-              <input type="checkbox">
-              <input type="checkbox">
-              <input type="checkbox">
-              <input type="checkbox">
-              <input type="checkbox">
+  <input type="checkbox">
+  <input type="checkbox">
+  <input type="checkbox">
+  <input type="checkbox">
+  <input type="checkbox">
+  <input type="checkbox">
+  <input type="checkbox">
 </div>
 
