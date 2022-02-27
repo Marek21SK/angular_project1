@@ -1,6 +1,8 @@
 <div class="content" role="main">
   <br> {{title}}
   <br><br>
+  <button (click)="nastaMenu(menu.OSOBY)">OSOBY</button>
+  <button (click)="nastaMenu(menu.KNIHY)">KNIHY</button>
 
 
 dec:&ensp;&nbsp; <input [(ngModel)]="decimal" (change)="transfertoBin()">
@@ -24,5 +26,44 @@ dec:&ensp;&nbsp; <input [(ngModel)]="decimal" (change)="transfertoBin()">
   <input [(ngModel)]="bits[2]" type="checkbox">
   <input [(ngModel)]="bits[1]" type="checkbox">
   <input [(ngModel)]="bits[0]" type="checkbox">
+
+  <div *ngIf="aktMenu == menu.OSOBY">
+    <h1>OSOBY</h1>
+    <br>
+    ID: <input [(ngModel)]="osoba.id"><br>
+    <br>
+    Meno: <input [(ngModel)]="osoba.meno"><br>
+    <br>
+    Kontakt: <input [(ngModel)]="osoba.kontakt"><br>
+    <br>
+    <button (click)="pridaj();">PRIDAJ</button><br>
+    <br/>
+    Zoznam:<br/>
+    <br>
+
+    <div *ngFor="let o of osoby">
+      osoba: {{o.id}}  {{o.meno}}  {{o.kontakt}}
+    </div>
+  </div>
+
+  <div *ngIf="aktMenu == menu.KNIHY">
+    <h1>KNIHY</h1>
+    <br>
+    ID: <input [(ngModel)]="kniha.id"><br>
+    <br>
+    Názov: <input [(ngModel)]="kniha.nazov"><br>
+    <br>
+    Autor: <input [(ngModel)]="kniha.autor"><br>
+    <br>
+    Dostupnosť: <input [(ngModel)]="kniha.dostupnost"><br>
+    <br>
+    <button (click)="pridaj2();">PRIDAJ</button><br>
+    <br/>
+    Zoznam:<br/>
+
+    <div *ngFor="let o of knihy">
+      kniha: {{o.id}} {{o.nazov}} {{o.autor}} {{o.dostupnost}}
+    </div>
+  </div>
 </div>
 
