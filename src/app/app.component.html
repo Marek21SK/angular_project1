@@ -3,6 +3,7 @@
   <br><br>
   <button (click)="nastaMenu(menu.OSOBY)">OSOBY</button>
   <button (click)="nastaMenu(menu.KNIHY)">KNIHY</button>
+  <button (click)="nastaMenu(menu.VYPOZICKY)">VYPOŽIČKY</button>
 
 
 dec:&ensp;&nbsp; <input [(ngModel)]="decimal" (change)="transfertoBin()">
@@ -63,6 +64,25 @@ dec:&ensp;&nbsp; <input [(ngModel)]="decimal" (change)="transfertoBin()">
 
     <div *ngFor="let o of knihy">
       kniha: {{o.id}} {{o.nazov}} {{o.autor}} {{o.dostupnost}}
+    </div>
+  </div>
+
+  <div *ngIf="aktMenu == menu.VYPOZICKY">
+    <h1>VYPOŽIČKY</h1>
+    <br>
+    ID: <input [(ngModel)]="vypozicky.id"><br>
+    <br>
+    Kniha: <input [(ngModel)]="vypozicky.kniha"><br>
+    <br>
+    Používateľ: <input [(ngModel)]="vypozicky.pouzivatel"><br>
+    <br>
+    <button (click)="pridaj3();">PRIDAJ</button><br>
+    <br/>
+    Zoznam:<br/>
+    <br>
+
+    <div *ngFor="let o of vypozicky">
+      vypozicka: {{o.id}}  {{o.kniha}}  {{o.pouzivatel}}
     </div>
   </div>
 </div>

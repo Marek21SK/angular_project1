@@ -15,6 +15,9 @@ export class AppComponent {
   knihy: any = [];
   kniha = {id:" ", nazov:" ", autor:" ", dostupnost:" "};
 
+  vypozicky: any = [];
+  vypozicka = {id:" ", kniha:" ", pouzivatel:" "};
+
   menu = MENU;
   aktMenu: MENU = MENU.OSOBY;
 
@@ -30,6 +33,9 @@ export class AppComponent {
     this.knihy.push({id: this.kniha.id, nazov: this.kniha.nazov, autor: this.kniha.autor, dostupnost: this.kniha.dostupnost});
   }
 
+  public  pridaj3(): void{
+    this.vypozicky.push({id: this.vypozicka.id, kniha: this.vypozicka.kniha, pouzivatel: this.vypozicka.pouzivatel});
+  }
   decimal = 0;
   n = 0;
 
