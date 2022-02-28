@@ -70,11 +70,11 @@ dec:&ensp;&nbsp; <input [(ngModel)]="decimal" (change)="transfertoBin()">
   <div *ngIf="aktMenu == menu.VYPOZICKY">
     <h1>VYPOŽIČKY</h1>
     <br>
-    ID: <input [(ngModel)]="vypozicky.id"><br>
+    ID: <input [(ngModel)]="vypozicka.id"><br>
     <br>
-    Kniha: <input [(ngModel)]="vypozicky.kniha"><br>
+    Kniha: <input [(ngModel)]="vypozicka.kniha"><br>
     <br>
-    Používateľ: <input [(ngModel)]="vypozicky.pouzivatel"><br>
+    Používateľ: <input [(ngModel)]="vypozicka.pouzivatel"><br>
     <br>
     <button (click)="pridaj3();">PRIDAJ</button><br>
     <br/>
