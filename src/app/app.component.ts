@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
 
 enum MENU {OSOBY, KNIHY,VYPOZICKY}
 @Component({
@@ -7,24 +8,25 @@ enum MENU {OSOBY, KNIHY,VYPOZICKY}
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Úloha1 a Úloha2 (Vytvorenie spoločného angular projektu.)';
-
-  osoby: any = [];
-  osoba = {id:" ", meno:" ", kontakt:" "};
-
-  knihy: any = [];
-  kniha = {id:" ", nazov:" ", autor:" ", dostupnost:" "};
+  title = 'Úloha1 a Úloha2 a Úloha3 (Vytvorenie spoločného angular projektu.)';
 
   vypozicky: any = [];
   vypozicka = {id:" ", kniha:" ", pouzivatel:" "};
 
   menu = MENU;
-  aktMenu: MENU = MENU.OSOBY;
 
-  nastaMenu(m: MENU){
-    this.aktMenu = m;
+  constructor(private router: Router){
   }
 
+  nastaMenu(m: MENU){
+    if (m == MENU.OSOBY){
+      this.router.navigate(["/osoba"]);
+    }
+    if (m == MENU.KNIHY){
+      this.router.navigate(["/kniha"]);
+    }
+  }
+/**
   public pridaj(): void{
     this.osoby.push({id: this.osoba.id, meno: this.osoba.meno, kontakt: this.osoba.kontakt});
   }
@@ -36,6 +38,9 @@ export class AppComponent {
   public  pridaj3(): void{
     this.vypozicky.push({id: this.vypozicka.id, kniha: this.vypozicka.kniha, pouzivatel: this.vypozicka.pouzivatel});
   }
+*/
+
+/**
   decimal = 0;
   n = 0;
 
@@ -47,4 +52,5 @@ export class AppComponent {
       this.bits[7 - n] = n < binary.length && binary[n] == '1';
     }
   }
+ */
 }
