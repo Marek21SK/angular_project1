@@ -49,22 +49,13 @@
     </div>
 
     <div *ngIf="aktMenu == menu.VYPOZICKY">
-      <h1>VYPOŽIČKY</h1>
-      <br>
-      ID: <input [(ngModel)]="vypozicka.id"><br>
-      <br>
-      Kniha: <input [(ngModel)]="vypozicka.kniha"><br>
-      <br>
-      Používateľ: <input [(ngModel)]="vypozicka.pouzivatel"><br>
-      <br>
+
       <button (click)="pridaj3();">PRIDAJ</button><br>
       <br/>
       Zoznam:<br/>
       <br>
 
-      <div *ngFor="let o of vypozicky">
-        vypozicka: {{o.id}}  {{o.kniha}}  {{o.pouzivatel}}
-      </div>
+
     </div>
     -->
   </div>

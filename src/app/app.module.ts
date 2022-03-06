@@ -11,6 +11,9 @@ import { OsobaStrankaComponent } from './osoba-stranka/osoba-stranka.component';
 import { OsobaZoznamComponent } from './osoba-zoznam/osoba-zoznam.component';
 import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
+import { VypozickaFormularComponent } from './vypozicka-formular/vypozicka-formular.component';
+import { VypozickaStrankaComponent } from './vypozicka-stranka/vypozicka-stranka.component';
+import { VypozickaZoznamComponent } from './vypozicka-zoznam/vypozicka-zoznam.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import {AppRoutingModule} from "./app-routing.module";
     KnihaZoznamComponent,
     OsobaFormularComponent,
     OsobaStrankaComponent,
-    OsobaZoznamComponent
+    OsobaZoznamComponent,
+    VypozickaFormularComponent,
+    VypozickaStrankaComponent,
+    VypozickaZoznamComponent
   ],
   imports: [
     BrowserModule,

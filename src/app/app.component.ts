@@ -10,9 +10,6 @@ enum MENU {OSOBY, KNIHY,VYPOZICKY}
 export class AppComponent {
   title = 'Úloha1 a Úloha2 a Úloha3 (Vytvorenie spoločného angular projektu.)';
 
-  vypozicky: any = [];
-  vypozicka = {id:" ", kniha:" ", pouzivatel:" "};
-
   menu = MENU;
 
   constructor(private router: Router){
@@ -24,6 +21,9 @@ export class AppComponent {
     }
     if (m == MENU.KNIHY){
       this.router.navigate(["/kniha"]);
+    }
+    if(m == MENU.VYPOZICKY){
+      this.router.navigate(["/vypozicka"]);
     }
   }
 /**
