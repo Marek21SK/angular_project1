@@ -1,8 +1,14 @@
+<form [formGroup]="formular"></form>
 <h1>OSOBY</h1>
 <br>
-Meno: <input [(ngModel)]="osoba.meno"><br>
+Meno: <input formControlName="osoba.meno"><br>
 <br>
-Priezvisko: <input [(ngModel)]="osoba.priezvisko"><br>
+Priezvisko: <input formControlName="osoba.priezvisko"><br>
 <br>
-Kontakt: <input [(ngModel)]="osoba.kontakt"><br>
+Kontakt: <input formControlName="osoba.kontakt"><br>
+<br>
+<button (click)="pridaj();">PRIDAJ</button><br>
+<button (click)="uprav();">UPRAV</button><br>
+<br/>
+Zoznam:<br/>
 <br>

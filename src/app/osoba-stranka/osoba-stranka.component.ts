@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import {Osoba} from "../models/osoba.model";
 
 @Component({
   selector: 'app-osoba-stranka',
@@ -6,6 +7,24 @@ import { Component} from '@angular/core';
   styleUrls: ['./osoba-stranka.component.css']
 })
 export class OsobaStrankaComponent{
+
+  osoby: Osoba[] =[];
+  aktOsoba: Osoba = {meno: " ", priezvisko: " ", kontakt: " "};
+
+  pridaj(osoba: Osoba): void{
+    this.osoby.push(osoba);
+  }
+
+  uprav(osoba: Osoba): void{
+    const index = this.osoby.findIndex(osobaZPola => osobaZPola.id === osoba.id);
+    if (index !== -1){
+      this.osoby[index] = osoba;
+    }
+  }
+
+  upravOsobuZoZoznamu(osoba: Osoba): void{
+    this.aktOsoba = osoba;
+  }
 
   constructor() { }
 }

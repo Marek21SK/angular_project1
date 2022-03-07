@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Osoba} from "../models/osoba.model";
 
 @Component({
@@ -8,7 +8,15 @@ import {Osoba} from "../models/osoba.model";
 })
 export class OsobaZoznamComponent{
 
+  @Input()
   osoby: Osoba[] = []
 
+  @Output()
+  upravOsobu: EventEmitter<Osoba> = new EventEmitter<Osoba>();
+
   constructor() { }
+
+  uprav(osoba: Osoba): void{
+    this.upravOsobu.emit(osoba);
+  }
 }
