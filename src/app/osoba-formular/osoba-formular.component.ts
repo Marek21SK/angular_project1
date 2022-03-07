@@ -18,7 +18,7 @@ export class OsobaFormularComponent{
   @Input()
   set osoba(o: Osoba){
     if(o){
-    this.formular.patchValue({
+    this.formular.setValue({
       id: o.id,
       meno: o.meno,
       priezvisko: o.priezvisko,

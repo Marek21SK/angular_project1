@@ -1,6 +1,5 @@
 import { Component} from '@angular/core';
 import {Osoba} from "../models/osoba.model";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-osoba-stranka',
