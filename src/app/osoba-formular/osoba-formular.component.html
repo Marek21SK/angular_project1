@@ -1,5 +1,6 @@
-<form [formGroup]="formular"></form>
+<form [formGroup]="formular">
 <h1>OSOBY</h1>
+ID: <input formControlName="osoba.id"><br>
 <br>
 Meno: <input formControlName="osoba.meno"><br>
 <br>
@@ -7,8 +8,10 @@ Priezvisko: <input formControlName="osoba.priezvisko"><br>
 <br>
 Kontakt: <input formControlName="osoba.kontakt"><br>
 <br>
-<button (click)="pridaj();">PRIDAJ</button><br>
+<button (click)="pridaj();">PRIDAJ</button>
 <button (click)="uprav();">UPRAV</button><br>
 <br/>
 Zoznam:<br/>
 <br>
+</form>
+

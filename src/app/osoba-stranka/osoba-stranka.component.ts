@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 import {Osoba} from "../models/osoba.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-osoba-stranka',
@@ -8,8 +9,10 @@ import {Osoba} from "../models/osoba.model";
 })
 export class OsobaStrankaComponent{
 
-  osoby: Osoba[] =[];
-  aktOsoba: Osoba = {meno: " ", priezvisko: " ", kontakt: " "};
+  constructor(){}
+
+  osoby: Osoba[] = [];
+  aktOsoba: Osoba = {id: " ", meno: " ", priezvisko: " ", kontakt: " "};
 
   pridaj(osoba: Osoba): void{
     this.osoby.push(osoba);
@@ -25,6 +28,4 @@ export class OsobaStrankaComponent{
   upravOsobuZoZoznamu(osoba: Osoba): void{
     this.aktOsoba = osoba;
   }
-
-  constructor() { }
 }

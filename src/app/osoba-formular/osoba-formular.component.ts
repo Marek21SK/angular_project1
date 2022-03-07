@@ -19,6 +19,7 @@ export class OsobaFormularComponent{
   set osoba(o: Osoba){
     if(o){
     this.formular.patchValue({
+      id: o.id,
       meno: o.meno,
       priezvisko: o.priezvisko,
       kontakt: o.kontakt
@@ -39,13 +40,24 @@ export class OsobaFormularComponent{
   }
 
   public pridaj(): void{
+    //this.pridajOsobu.emit(this.formular.value);
     this.pridajOsobu.emit(
-    {id: Math.random().toString(), meno: this.formular.value.meno, priezvisko: this.formular.value.priezvisko, kontakt: this.formular.value.kontakt});
+    {id: Math.random().toString(),
+      meno: this.formular.value.meno,
+      priezvisko: this.formular.value.priezvisko,
+      kontakt: this.formular.value.kontakt
+    });
     this.formular.reset();
   }
 
   public uprav(): void{
     this.upravOsobu.emit(this.formular.value);
+    // this.upravOsobu.emit({
+    //   id: this.formular.value.id,
+    //   meno: this.formular.value.meno,
+    //   priezvisko: this.formular.value.priezvisko,
+    //   kontakt: this.formular.value.kontakt
+    // });
     this.formular.reset();
   }
 }
