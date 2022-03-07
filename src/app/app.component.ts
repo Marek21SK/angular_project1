@@ -27,10 +27,6 @@ export class AppComponent {
     }
   }
 /**
-  public pridaj(): void{
-    this.osoby.push({id: this.osoba.id, meno: this.osoba.meno, kontakt: this.osoba.kontakt});
-  }
-
   public pridaj2(): void{
     this.knihy.push({id: this.kniha.id, nazov: this.kniha.nazov, autor: this.kniha.autor, dostupnost: this.kniha.dostupnost});
   }
