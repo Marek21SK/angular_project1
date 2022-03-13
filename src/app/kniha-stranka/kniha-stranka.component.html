@@ -1,3 +1,16 @@
-<app-kniha-formular></app-kniha-formular>
+<h1>Knihy</h1>
+<app-kniha-formular [kniha]="knihaNaUpravu"
+                    (pridajKnihu)="pridaj($event)"
+                    (upravKnihu)="uprav($event)">
+</app-kniha-formular>
 
-<app-kniha-zoznam></app-kniha-zoznam>
+<app-kniha-zoznam [knihy]="knihy"
+                  (upravKnihu)="upravZoZoznamu($event)">
+
+</app-kniha-zoznam>
+
+<br>
+
+<div>
+  <button (click)="chodSpat()">SPÄŤ</button>
+</div>

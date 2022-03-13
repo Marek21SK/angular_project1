@@ -1,5 +1,5 @@
 export class Kniha{
-  id: string;
+  id?: string;
   autor: string;
   nazov: string;
   dostupnost: string;

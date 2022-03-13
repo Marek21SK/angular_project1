@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { KnihaFormularComponent } from './kniha-formular/kniha-formular.component';
@@ -14,6 +13,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import { VypozickaFormularComponent } from './vypozicka-formular/vypozicka-formular.component';
 import { VypozickaStrankaComponent } from './vypozicka-stranka/vypozicka-stranka.component';
 import { VypozickaZoznamComponent } from './vypozicka-zoznam/vypozicka-zoznam.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -26,14 +26,15 @@ import { VypozickaZoznamComponent } from './vypozicka-zoznam/vypozicka-zoznam.co
     OsobaZoznamComponent,
     VypozickaFormularComponent,
     VypozickaStrankaComponent,
-    VypozickaZoznamComponent
+    VypozickaZoznamComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
