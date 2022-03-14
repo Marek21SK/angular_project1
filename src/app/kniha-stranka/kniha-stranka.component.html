@@ -1,3 +1,8 @@
-<app-kniha-formular></app-kniha-formular>
+<h1>Knihy</h1>
 
-<app-kniha-zoznam></app-kniha-zoznam>
+<app-osoba-formular>
+</app-osoba-formular>
+
+<app-osoba-zoznam [knihy]="knihy"
+                  (zmazKnihu)="zmazZoZoznamu($event)">
+</app-osoba-zoznam>
