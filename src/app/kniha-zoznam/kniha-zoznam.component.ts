@@ -14,9 +14,16 @@ export class KnihaZoznamComponent{
   @Output()
   upravKnihu: EventEmitter<Kniha> = new EventEmitter<Kniha>();
 
+  @Output()
+  zmazKnihu: EventEmitter<Kniha> = new EventEmitter<Kniha>();
+
   constructor() { }
 
   uprav(kniha: Kniha): void{
     this.upravKnihu.emit(kniha);
+  }
+
+  zmaz(kniha: Kniha): void{
+    this.zmazKnihu.emit(kniha);
   }
 }

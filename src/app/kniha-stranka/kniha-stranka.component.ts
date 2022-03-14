@@ -33,4 +33,10 @@ export class KnihaStrankaComponent{
   upravZoZoznamu(kniha: Kniha): void{
     this.knihaNaUpravu = kniha;
   }
+  zmazZoZoznamu(kniha: Kniha): void{
+    const index = this.knihy.findIndex(knihaArray => knihaArray.id === kniha.id);
+    if (index !== -1) {
+      this.knihy.splice(index, 1);
+    }
+  }
 }

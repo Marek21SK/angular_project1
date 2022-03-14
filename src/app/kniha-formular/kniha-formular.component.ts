@@ -59,4 +59,9 @@ export class KnihaFormularComponent{
     this.upravKnihu.emit(this.form.value);
     this.form.reset();
   }
+
+  public zrus(): void {
+      this.kniha = undefined;
+      this.form.reset();
+    }
 }
