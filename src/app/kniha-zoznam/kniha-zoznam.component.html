@@ -7,7 +7,7 @@
 <table class="table"> <!---*ngIf="knihy?.length > 0"-->
   <thead>
   <tr>
-    <!--<th>ID</th>-->
+    <th>ID</th>
     <th>Názov</th>
     <th>Autor</th>
     <th>Dostupnosť</th>
@@ -16,7 +16,7 @@
 
   <tbody>
   <tr *ngFor="let kniha of knihy">
-    <!--<td>{{kniha.id}}</td>-->
+    <td>{{kniha.id}}</td>
     <td>{{kniha.nazov}}</td>
     <td>{{kniha.autor}}</td>
     <td>{{kniha.dostupnost}}</td>
