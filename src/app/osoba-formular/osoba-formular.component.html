@@ -1,8 +1,36 @@
-<h1>OSOBY</h1>
+<h1>OSOBY - formulár</h1>
 <br>
-Meno: <input [(ngModel)]="osoba.meno"><br>
-<br>
-Priezvisko: <input [(ngModel)]="osoba.priezvisko"><br>
-<br>
-Kontakt: <input [(ngModel)]="osoba.kontakt"><br>
-<br>
+<form [formGroup]="form">
+  <label>ID:
+    <input formControlName="id">
+  </label>
+  <br>
+
+  <label>Meno:
+    <input formControlName="meno">
+  </label>
+  <br>
+
+  <label>Priezvisko:
+    <input formControlName="priezvisko">
+  </label>
+  <br>
+
+  <label>Kontakt:
+    <input formControlName="kontakt">
+  </label>
+  <br>
+
+  <button (click)="pridaj()" *ngIf="form.value.id === null">PRIDAJ</button>
+  <button (click)="uprav()" *ngIf="form.value.id !== null">UPRAV</button>
+  <button (click)="zrus()">ZRUS</button>
+
+  <!---
+  Meno: <input [(ngModel)]="osoba.meno"><br>
+  <br>
+  Priezvisko: <input [(ngModel)]="osoba.priezvisko"><br>
+  <br>
+  Kontakt: <input [(ngModel)]="osoba.kontakt"><br>
+  <br>
+  -->
+</form>
