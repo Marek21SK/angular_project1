@@ -14,9 +14,16 @@ export class OsobaZoznamComponent{
   @Output()
   upravOsobu: EventEmitter<Osoba> = new EventEmitter<Osoba>();
 
+  @Output()
+  zmazOsobu: EventEmitter<Osoba> = new EventEmitter<Osoba>();
+
   constructor() { }
 
   uprav(osoba: Osoba): void{
     this.upravOsobu.emit(osoba);
+  }
+
+  zmaz(osoba: Osoba): void{
+    this.zmazOsobu.emit(osoba);
   }
 }

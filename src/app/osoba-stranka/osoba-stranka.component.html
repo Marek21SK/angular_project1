@@ -1,6 +1,17 @@
-<app-osoba-formular [osoba]="aktOsoba"
+<h1>Osoby</h1>
+
+<app-osoba-formular [osoba]="osobaNaUpravu"
                     (pridajOsobu) ="pridaj($event)"
                     (upravOsobu)="uprav($event)">
 </app-osoba-formular>
 
-<app-osoba-zoznam [osoby]="osoby" (upravOsobu)="upravOsobuZoZoznamu($event)"></app-osoba-zoznam>
+<app-osoba-zoznam [osoby]="osoby"
+                  (upravOsobu)="upravOsobuZoZoznamu($event)"
+                  (zmazOsobu)="zmazOsobuZoZozanmu($event)">
+</app-osoba-zoznam>
+
+<br>
+
+<div>
+  <button (click)="chodSpat()">NASPÄŤ</button>
+</div>

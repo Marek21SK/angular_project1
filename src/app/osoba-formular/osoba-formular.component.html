@@ -1,17 +1,30 @@
-<form [formGroup]="formular">
-<h1>OSOBY</h1>
-ID: <input formControlName="id"><br>
-<br>
-Meno: <input formControlName="meno"><br>
-<br>
-Priezvisko: <input formControlName="priezvisko"><br>
-<br>
-Kontakt: <input formControlName="kontakt"><br>
-<br>
-<button (click)="pridaj();">PRIDAJ</button>
-<button (click)="uprav();">UPRAV</button><br>
-<br/>
-Zoznam:<br/>
-<br>
+<h1>OSOBY - formular</h1>
+
+<form [formGroup]="form">
+
+  <label>ID:
+    <input formControlName="id">
+  </label>
+  <br>
+
+  <label>Meno:
+    <input formControlName="meno">
+  </label>
+  <br>
+
+  <label>Priezvisko:
+    <input formControlName="priezvisko">
+  </label>
+  <br>
+
+  <label>Kontakt:
+    <input formControlName="kontakt">
+  </label>
+  <br>
+
+  <button (click)="pridaj();" *ngIf="form.value.id === null">PRIDAJ</button>
+  <button (click)="uprav();" *ngIf="form.value.id !== null">UPRAV</button>
+  <button (click)="zrus();">ZRUŠ</button>
+
 </form>
 

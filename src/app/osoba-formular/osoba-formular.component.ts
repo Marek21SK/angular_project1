@@ -9,29 +9,25 @@ import {FormControl, FormGroup} from "@angular/forms";
 })
 export class OsobaFormularComponent{
 
+  @Input()
+  set osoba(data: Osoba | undefined){
+    if (data){
+      this.form.setValue(data);
+    }
+  }
+
  @Output()
  pridajOsobu = new EventEmitter<Osoba>();
 
  @Output()
  upravOsobu = new EventEmitter<Osoba>();
 
-  @Input()
-  set osoba(o: Osoba){
-    if(o){
-    this.formular.setValue({
-      id: o.id,
-      meno: o.meno,
-      priezvisko: o.priezvisko,
-      kontakt: o.kontakt
-    });
-   }
-  }
   //osoba: Osoba = {meno:" ", priezvisko: " ", kontakt:" "};
 
-  formular: FormGroup;
+  form: FormGroup;
 
   constructor() {
-    this.formular = new FormGroup({
+    this.form = new FormGroup({
       id: new FormControl(null),
       meno: new FormControl(null),
       priezvisko: new FormControl(null),
@@ -39,25 +35,25 @@ export class OsobaFormularComponent{
     });
   }
 
-  public pridaj(): void{
-    //this.pridajOsobu.emit(this.formular.value);
-    this.pridajOsobu.emit(
-    {id: Math.random().toString(),
-      meno: this.formular.value.meno,
-      priezvisko: this.formular.value.priezvisko,
-      kontakt: this.formular.value.kontakt
-    });
-    this.formular.reset();
+  public pridaj(){
+    //this.pridajOsobu.emit(this.form.value);
+    this.pridajOsobu.emit({id: Math.random().toString(), meno: this.form.value.meno, priezvisko: this.form.value.priezvisko, kontakt: this.form.value.kontakt});
+    this.form.reset();
   }
 
-  public uprav(): void{
-    this.upravOsobu.emit(this.formular.value);
+  public uprav(){
+    this.upravOsobu.emit(this.form.value);
     // this.upravOsobu.emit({
     //   id: this.formular.value.id,
     //   meno: this.formular.value.meno,
     //   priezvisko: this.formular.value.priezvisko,
     //   kontakt: this.formular.value.kontakt
     // });
-    this.formular.reset();
+    this.form.reset();
+  }
+
+  public zrus(){
+    this.osoba = undefined;
+    this.form.reset();
   }
 }

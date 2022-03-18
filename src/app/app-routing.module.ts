@@ -3,19 +3,24 @@ import {OsobaStrankaComponent} from "./osoba-stranka/osoba-stranka.component";
 import {NgModule} from "@angular/core";
 import {KnihaStrankaComponent} from "./kniha-stranka/kniha-stranka.component";
 import {VypozickaStrankaComponent} from "./vypozicka-stranka/vypozicka-stranka.component";
+import {MenuComponent} from "./menu/menu.component";
 
 const routes: Routes =[
   {
-    path: "osoba",
+    path: 'osoba',
     component: OsobaStrankaComponent
   },
   {
-    path: "kniha",
+    path: 'kniha',
     component: KnihaStrankaComponent
   },
   {
-    path: "vypozicka",
+    path: 'vypozicka',
     component: VypozickaStrankaComponent
+  },
+  {
+    path: '',
+    component: MenuComponent
   }
 ]
 
