@@ -8,7 +8,7 @@ import {Osoba, OsobaZoznam} from "./app/models/osoba.model";
 })
 export class OsobaService {
 
-  private apiUrl = 'http://localhost:8080/api/customer'
+  private apiUrl = 'http://localhost:8080/api/customers'
 
   constructor(private http: HttpClient) { }
 
