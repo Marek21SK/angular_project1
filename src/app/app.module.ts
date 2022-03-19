@@ -14,6 +14,7 @@ import { VypozickaFormularComponent } from './vypozicka-formular/vypozicka-formu
 import { VypozickaStrankaComponent } from './vypozicka-stranka/vypozicka-stranka.component';
 import { VypozickaZoznamComponent } from './vypozicka-zoznam/vypozicka-zoznam.component';
 import { MenuComponent } from './menu/menu.component';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MenuComponent } from './menu/menu.component';
     ReactiveFormsModule,
     RouterModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

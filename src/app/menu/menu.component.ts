@@ -8,7 +8,7 @@ enum MENU {OSOBY, KNIHY,VYPOZICKY}
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent{
-  title = 'Úloha1 a Úloha2 a Úloha3 a Úloha4 (Vytvorenie spoločného angular projektu.)';
+  title = 'Úloha1 a Úloha2 a Úloha3 a Úloha4 a Úloha5 (Vytvorenie spoločného angular projektu.)';
 
   menu = MENU;
 
@@ -21,8 +21,10 @@ export class MenuComponent{
     if (m == MENU.KNIHY){
       this.router.navigate(["/kniha"]);
     }
+/**
     if(m == MENU.VYPOZICKY){
       this.router.navigate(["/vypozicka"]);
       }
+ */
     }
 }

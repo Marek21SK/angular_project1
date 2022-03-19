@@ -8,10 +8,11 @@ import {FormControl, FormGroup} from "@angular/forms";
   styleUrls: ['./osoba-formular.component.css']
 })
 export class OsobaFormularComponent{
+
   @Input()
-  set osoba(data: Osoba | undefined ){
+  set osoba(data: Osoba | undefined){
     if (data){
-      this.form.setValue(data);
+      this.vyplnForm(data);
     }
   }
 
@@ -21,11 +22,18 @@ export class OsobaFormularComponent{
   @Output()
   upravOsobu = new EventEmitter<Osoba>();
 
-  form: FormGroup;
+  @Output()
+  zmazOsobu = new EventEmitter<Osoba>();
 
-  /**osoba: Osoba = {meno:" ", priezvisko: " ", kontakt:" "};*/
+  //osoba: Osoba = {meno:" ", priezvisko: " ", kontakt:" "};
+
+  form!: FormGroup;
 
   constructor() {
+    this.vytvorForm();
+  }
+
+  private vytvorForm(): void {
     this.form = new FormGroup({
       id: new FormControl(null),
       meno: new FormControl(null),
@@ -34,17 +42,31 @@ export class OsobaFormularComponent{
     });
   }
 
-  pridaj(){
-    this.pridajOsobu.emit({id: Math.random().toString(), meno: this.form.value.meno, priezvisko: this.form.value.priezvisko, kontakt: this.form.value.kontakt});
+  private vyplnForm(osoba: Osoba): void{
+    this.form.controls["id"].setValue(osoba.id);
+    this.form.controls["meno"].setValue(osoba.meno);
+    this.form.controls["priezvisko"].setValue(osoba.priezvisko);
+    this.form.controls["kontakt"].setValue(osoba.kontakt);
+  }
+
+  public pridaj(): void{
+    //this.pridajOsobu.emit(this.form.value);
+    this.pridajOsobu.emit({id: Math.random(), meno: this.form.value.meno, priezvisko: this.form.value.priezvisko, kontakt: this.form.value.kontakt});
     this.form.reset();
   }
 
-  uprav(){
+  public uprav(): void {
     this.upravOsobu.emit(this.form.value);
     this.form.reset();
+    // this.upravOsobu.emit({
+    //   id: this.formular.value.id,
+    //   meno: this.formular.value.meno,
+    //   priezvisko: this.formular.value.priezvisko,
+    //   kontakt: this.formular.value.kontakt
+    // });
   }
 
-  public zrus(): void {
+  public zrus(): void{
     this.osoba = undefined;
     this.form.reset();
   }
