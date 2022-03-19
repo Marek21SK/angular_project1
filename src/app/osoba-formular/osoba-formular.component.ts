@@ -51,7 +51,7 @@ export class OsobaFormularComponent{
 
   public pridaj(): void{
     //this.pridajOsobu.emit(this.form.value);
-    this.pridajOsobu.emit({meno: this.form.value.meno, priezvisko: this.form.value.priezvisko, kontakt: this.form.value.kontakt});
+    this.pridajOsobu.emit({id: Math.random(), meno: this.form.value.meno, priezvisko: this.form.value.priezvisko, kontakt: this.form.value.kontakt});
     this.form.reset();
   }
 
