@@ -44,10 +44,13 @@ export class OsobaStrankaComponent implements OnInit{
   }
 
   uprav(osoba: Osoba): void{
-    const index = this.osoby.findIndex(osobaArray => osobaArray.id === osoba.id);
-    if (index !== -1){
-      this.osoby[index] = osoba;
-    }
+    //const index = this.osoby.findIndex(osobaArray => osobaArray.id === osoba.id);
+    //if (index !== -1){
+    // this.osoby[index] = osoba;
+    this.osobaService.updateOsoba(osoba.id, osoba).subscribe(data =>{
+      console.log('upravene', osoba);
+      this.refreshOsob();
+    });
   }
 
   upravZoZoznamu(osoba: Osoba): void{
@@ -55,10 +58,13 @@ export class OsobaStrankaComponent implements OnInit{
   }
 
   zmazZoZoznamu(osoba: Osoba): void {
-    const index = this.osoby.findIndex(osobaArray => osobaArray.id === osoba.id);
-    if (index !== -1){
-      this.osoby.splice(index, 1);
+    //const index = this.osoby.findIndex(osobaArray => osobaArray.id === osoba.id);
+    //if (index !== -1){
+    //this.osoby.splice(index, 1);
+    this.osobaService.deleteOsoba(osoba.id).subscribe(data =>{
+      console.log('vymazane', data);
+      this.refreshOsob()
+    });
     }
     //this.aktOsoba = osoba;
-  }
 }

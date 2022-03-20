@@ -22,8 +22,8 @@ export class OsobaFormularComponent{
   @Output()
   upravOsobu = new EventEmitter<Osoba>();
 
-  @Output()
-  zmazOsobu = new EventEmitter<Osoba>();
+  //@Output()
+  //zmazOsobu = new EventEmitter<Osoba>();
 
   //osoba: Osoba = {meno:" ", priezvisko: " ", kontakt:" "};
 
