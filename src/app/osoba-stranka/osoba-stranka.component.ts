@@ -44,21 +44,25 @@ export class OsobaStrankaComponent implements OnInit{
   }
 
   uprav(osoba: Osoba): void{
-    const index = this.osoby.findIndex(osobaArray => osobaArray.id === osoba.id);
-    if (index !== -1){
-      this.osoby[index] = osoba;
+    if (osoba.id !== undefined) {
+      this.osobaService.updateOsoba(osoba.id, osoba).subscribe(data => {
+        console.log('prislo', data);
+        this.refreshOsob()
+      });
     }
   }
 
-  upravOsobuZoZoznamu(osoba: Osoba): void{
-    this.osobaNaUpravu = osoba;
+  upravOsobuZoZoznamu(osobaId: number): void{
+    this.osobaService.getOsoba(osobaId).subscribe(data => {
+      console.log('prislo', data);
+      this.osobaNaUpravu = data;
+    });
     }
 
-  zmazOsobuZoZozanmu(osoba: Osoba): void {
-    const index = this.osoby.findIndex(osobaArray => osobaArray.id === osoba.id);
-    if (index !== -1){
-      this.osoby.splice(index, 1);
-    }
+  zmazOsobuZoZozanmu(osobaId: number): void {
+    this.osobaService.deleteOsoba(osobaId).subscribe(data => {
+      this.refreshOsob();
+    });
     //this.aktOsoba = osoba;
   }
 }

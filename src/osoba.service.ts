@@ -16,11 +16,19 @@ export class OsobaService {
     return this.http.get<OsobaZoznam[]>(`${this.apiUrl}`);
   }
 
-  getOsoba(osobaId: string): Observable<Osoba>{
+  getOsoba(osobaId: number): Observable<Osoba>{
     return this.http.get<Osoba>(`${this.apiUrl}/${osobaId}`);
   }
 
   createOsoba(osoba: Osoba): Observable<Osoba>{
     return this.http.post<Osoba>(`${this.apiUrl}`, {id: osoba.id, meno: osoba.meno, priezvisko: osoba.priezvisko, kontakt: osoba.kontakt});
+  }
+
+  deleteOsoba(osobaId: number):Observable<void>{
+    return this.http.delete<void>(`${this.apiUrl}/${osobaId}`);
+  }
+
+  updateOsoba(osobaId: number, osoba: Osoba): Observable<Osoba>{
+    return this.http.put<Osoba>(`${this.apiUrl}/${osobaId}`, osoba);
   }
 }
