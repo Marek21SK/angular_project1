@@ -1,10 +1,10 @@
 <h1>Knihy - zoznam</h1>
-<!--
+
 <div *ngIf="!knihy || knihy?.length === 0">
   Zoznam kníh je prázdny.
 </div>
--->
-<table class="table"> <!---*ngIf="knihy?.length > 0"-->
+
+<table class="table" *ngIf="knihy.length > 0">
   <thead>
   <tr>
     <th>ID</th>
