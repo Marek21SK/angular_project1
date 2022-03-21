@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Osoba} from "../models/osoba.model";
+import {Osoba, OsobaZoznam} from "../models/osoba.model";
 import {Router} from "@angular/router";
 import {OsobaService} from "../../osoba.service";
 
@@ -10,7 +10,7 @@ import {OsobaService} from "../../osoba.service";
 })
 export class OsobaStrankaComponent implements OnInit{
 
-  osoby: Osoba[] = [];
+  osoby: OsobaZoznam[] = [];
 
   osobaNaUpravu?: Osoba;
   //aktOsoba: Osoba = {id: " ", meno: " ", priezvisko: " ", kontakt: " "};
@@ -24,10 +24,7 @@ export class OsobaStrankaComponent implements OnInit{
   refreshOsob(): void{
     this.osobaService.getOsoby().subscribe(data =>{
       console.log('prislo:', data);
-      this.osoby = [];
-      for (const d of data){
-        this.osoby.push({ id: d.id, meno: d.meno, priezvisko: d.priezvisko, kontakt: d.kontakt});
-      }
+      this.osoby = data;
     });
   }
 

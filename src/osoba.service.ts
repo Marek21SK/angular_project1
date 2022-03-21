@@ -21,7 +21,7 @@ export class OsobaService {
   }
 
   createOsoba(osoba: Osoba): Observable<Osoba>{
-    return this.http.post<Osoba>(`${this.apiUrl}`, {id: osoba.id, meno: osoba.meno, priezvisko: osoba.priezvisko, kontakt: osoba.kontakt});
+    return this.http.post<Osoba>(`${this.apiUrl}`, osoba);
   }
 
   deleteOsoba(osobaId: number):Observable<void>{
