@@ -10,7 +10,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class OsobaFormularComponent{
 
   @Input()
-  set osoba(data: Osoba){
+  set osoba(data: Osoba | undefined){
     if (data){
       this.vyplnForm(data);
     }
