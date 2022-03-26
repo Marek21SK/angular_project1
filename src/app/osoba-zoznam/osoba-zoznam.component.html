@@ -8,7 +8,8 @@
   <thead>
   <tr>
     <th>ID</th>
-    <th>Meno a priezvisko</th>
+    <th>Meno</th>
+    <th>Priezvisko</th>
     <th>Kontakt</th>
   </tr>
   </thead>
@@ -17,6 +18,7 @@
   <tr *ngFor="let osoba of osoby">
     <td>{{osoba.id}}</td>
     <td>{{osoba.meno}}</td>
+    <td>{{osoba.priezvisko}}</td>
     <td>{{osoba.kontakt}}</td>
     <td>
       <button (click)="uprav(osoba.id)">UPRAVIŤ</button>
