@@ -15,6 +15,9 @@ import { VypozickaStrankaComponent } from './vypozicka-stranka/vypozicka-stranka
 import { VypozickaZoznamComponent } from './vypozicka-zoznam/vypozicka-zoznam.component';
 import { MenuComponent } from './menu/menu.component';
 import { HttpClientModule } from "@angular/common/http";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { HttpClientModule } from "@angular/common/http";
     ReactiveFormsModule,
     RouterModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

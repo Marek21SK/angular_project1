@@ -1,18 +1,21 @@
-import { Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Osoba, OsobaZoznam} from "../models/osoba.model";
 import {Router} from "@angular/router";
-import {Osoba} from "../models/osoba.model";
 import {OsobaService} from "../../osoba.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-osoba-stranka',
   templateUrl: './osoba-stranka.component.html',
   styleUrls: ['./osoba-stranka.component.css']
 })
-export class OsobaStrankaComponent implements OnInit{
+export class OsobaStrankaComponent implements OnInit, OnDestroy{
 
-  osoby: Osoba[] = [];
+  osoby: OsobaZoznam[] = [];
 
   osobaNaUpravu?: Osoba;
+
+  private subscription: Subscription = new Subscription();
   //aktOsoba: Osoba = {id: " ", meno: " ", priezvisko: " ", kontakt: " "};
 
   constructor(private router: Router, private osobaService: OsobaService){}
@@ -21,14 +24,15 @@ export class OsobaStrankaComponent implements OnInit{
     this.refreshOsob();
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
   refreshOsob(): void{
-    this.osobaService.getOsoby().subscribe(data =>{
+    this.subscription.add(this.osobaService.getOsoby().subscribe(data =>{
       console.log('prislo:', data);
-      this.osoby = [];
-      for (const d of data){
-        this.osoby.push({ id: d.id, meno: d.meno, priezvisko: d.priezvisko, kontakt: d.kontakt});
-      }
-    });
+      this.osoby = data;
+    }));
   }
 
   chodSpat(): void{
@@ -37,34 +41,34 @@ export class OsobaStrankaComponent implements OnInit{
 
   pridaj(osoba: Osoba): void{
     // this.osoby.push(osoba);
-    this.osobaService.createOsoba(osoba).subscribe(data => {
+    this.subscription.add(this.osobaService.createOsoba(osoba).subscribe(data => {
       console.log('prislo', data);
       this.refreshOsob()
-    });
+    }));
   }
 
   uprav(osoba: Osoba): void{
-    //const index = this.osoby.findIndex(osobaArray => osobaArray.id === osoba.id);
-    //if (index !== -1){
-    // this.osoby[index] = osoba;
-    this.osobaService.updateOsoba(osoba.id, osoba).subscribe(data =>{
-      console.log('upravene', osoba);
+    if (osoba.id !== undefined) {
+      this.subscription.add(this.osobaService.updateOsoba(osoba.id, osoba).subscribe(data => {
+        console.log('prislo', data);
+        this.refreshOsob()
+      }));
+    }
+  }
+
+  upravOsobuZoZoznamu(osobaId: number): void{
+    this.subscription.add(this.osobaService.getOsoba(osobaId).subscribe(data => {
+      console.log('prislo', data);
+      this.osobaNaUpravu = data;
+    }));
+    }
+
+  zmazOsobuZoZozanmu(osobaId: number): void {
+    if (confirm('Naozaj chcete zmazat?')){
+      this.subscription.add(this.osobaService.deleteOsoba(osobaId).subscribe(data => {
       this.refreshOsob();
-    });
-  }
-
-  upravZoZoznamu(osoba: Osoba): void{
-    this.osobaNaUpravu = osoba;
-  }
-
-  zmazZoZoznamu(osoba: Osoba): void {
-    //const index = this.osoby.findIndex(osobaArray => osobaArray.id === osoba.id);
-    //if (index !== -1){
-    //this.osoby.splice(index, 1);
-    this.osobaService.deleteOsoba(osoba.id).subscribe(data =>{
-      console.log('vymazane', data);
-      this.refreshOsob()
-    });
+    }));
     }
     //this.aktOsoba = osoba;
+  }
 }

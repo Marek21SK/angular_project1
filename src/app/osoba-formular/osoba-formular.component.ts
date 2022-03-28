@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Osoba} from "../models/osoba.model";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-osoba-formular',
@@ -16,14 +16,14 @@ export class OsobaFormularComponent{
     }
   }
 
-  @Output()
-  pridajOsobu = new EventEmitter<Osoba>();
+ @Output()
+ pridajOsobu = new EventEmitter<Osoba>();
 
-  @Output()
-  upravOsobu = new EventEmitter<Osoba>();
+ @Output()
+ upravOsobu = new EventEmitter<Osoba>();
 
-  //@Output()
-  //zmazOsobu = new EventEmitter<Osoba>();
+ @Output()
+ zmazOsobu = new EventEmitter<Osoba>();
 
   //osoba: Osoba = {meno:" ", priezvisko: " ", kontakt:" "};
 
@@ -36,9 +36,9 @@ export class OsobaFormularComponent{
   private vytvorForm(): void {
     this.form = new FormGroup({
       id: new FormControl(null),
-      meno: new FormControl(null),
-      priezvisko: new FormControl(null),
-      kontakt: new FormControl(null)
+      meno: new FormControl(null, Validators.required),
+      priezvisko: new FormControl(null, Validators.required),
+      kontakt: new FormControl(null, [Validators.required, Validators.minLength(3)])
     });
   }
 
@@ -50,9 +50,11 @@ export class OsobaFormularComponent{
   }
 
   public pridaj(): void{
+    if (this.form.valid){
     //this.pridajOsobu.emit(this.form.value);
-    this.pridajOsobu.emit({id: Math.random(), meno: this.form.value.meno, priezvisko: this.form.value.priezvisko, kontakt: this.form.value.kontakt});
+    this.pridajOsobu.emit(this.form.value);
     this.form.reset();
+    }
   }
 
   public uprav(): void {
@@ -64,10 +66,9 @@ export class OsobaFormularComponent{
     //   priezvisko: this.formular.value.priezvisko,
     //   kontakt: this.formular.value.kontakt
     // });
-  }
+    }
 
-  public zrus(): void{
-    this.osoba = undefined;
+    public zrus(): void{
     this.form.reset();
   }
 }

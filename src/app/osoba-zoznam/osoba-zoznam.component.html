@@ -21,14 +21,16 @@
     <td>{{osoba.priezvisko}}</td>
     <td>{{osoba.kontakt}}</td>
     <td>
-      <button (click)="uprav(osoba)">UPRAVIŤ</button>
-      <button (click)="zmaz(osoba)">ZMAZAŤ</button>
+      <button (click)="uprav(osoba.id)">UPRAVIŤ</button>
+      <button (click)="zmaz(osoba.id)">ZMAZAŤ</button>
     </td>
   </tr>
   </tbody>
 </table>
-<!---
+
+<!--
 <div *ngFor="let o of osoby">
-  osoba: {{o.meno}}  {{o.priezvisko}}  {{o.kontakt}}
+  osoba: {{o.id}}  {{o.meno}}  {{o.priezvisko}}  {{o.kontakt}}
+  <button (click)="uprav(o)">Uprav</button>
 </div>
 -->
