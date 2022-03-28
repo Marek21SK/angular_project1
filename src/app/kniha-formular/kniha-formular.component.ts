@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {Kniha} from "../models/kniha.model";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-kniha-formular',
@@ -22,6 +22,10 @@ export class KnihaFormularComponent{
   @Output()
   upravKnihu = new EventEmitter<Kniha>();
 
+  @Output()
+  zmazKnihu = new EventEmitter<Kniha>();
+
+
   form!: FormGroup;
 
   /**kniha: Kniha ={id:" ", nazov:" ", autor:" ", dostupnost:" "};
@@ -34,9 +38,9 @@ export class KnihaFormularComponent{
   private vytvorform(): void{
     this.form = new FormGroup({
       id: new FormControl(null),
-      nazov: new FormControl(null),
-      autor: new FormControl(null),
-      dostupnost: new FormControl(null)
+      nazov: new FormControl(null, Validators.required),
+      autor: new FormControl(null, Validators.required),
+      dostupnost: new FormControl(null, [Validators.required, Validators.minLength(1)])
     });
   }
     /*
@@ -63,8 +67,10 @@ export class KnihaFormularComponent{
   }
 
   public pridaj(): void{
-    this.pridajKnihu.emit({id: Math.random(), nazov: this.form.value.nazov, autor: this.form.value.autor, dostupnost: this.form.value.dostupnost});
+    if (this.form.value){
+    this.pridajKnihu.emit(this.form.value);
     this.form.reset();
+    }
   }
 
   public uprav(): void{
@@ -73,7 +79,6 @@ export class KnihaFormularComponent{
   }
 
   public zrus(): void {
-      this.kniha = undefined;
       this.form.reset();
     }
 }

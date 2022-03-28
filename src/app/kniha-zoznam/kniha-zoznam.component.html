@@ -21,8 +21,8 @@
     <td>{{kniha.autor}}</td>
     <td>{{kniha.dostupnost}}</td>
     <td>
-      <button (click)="uprav(kniha)">UPRAVIŤ</button>
-      <button (click)="zmaz(kniha)">ZMAZAŤ</button>
+      <button (click)="uprav(kniha.id)">UPRAVIŤ</button>
+      <button (click)="zmaz(kniha.id)">ZMAZAŤ</button>
     </td>
   </tr>
   </tbody>

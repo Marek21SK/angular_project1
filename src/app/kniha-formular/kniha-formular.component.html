@@ -7,23 +7,44 @@
     </label>
     <br>-->
 
+  <!--
   <label>Názov:
     <input formControlName="nazov">
   </label>
+  <br>-->
+
+  <mat-form-field appearance="fill">
+    <mat-label>Názov:</mat-label>
+    <input matInput formControlName="nazov" placeholder="Zadaj názov...">
+  </mat-form-field>
   <br>
 
+  <!--
   <label>Autor:
     <input formControlName="autor">
   </label>
+  <br>-->
+
+  <mat-form-field appearance="fill">
+    <mat-label>Autor:</mat-label>
+    <input matInput formControlName="autor" placeholder="Zadaj autora...">
+  </mat-form-field>
   <br>
 
+  <!--
   <label>Dostupnosť:
     <input formControlName="dostupnost">
   </label>
+  <br>-->
+
+  <mat-form-field appearance="fill">
+    <mat-label>Dostupnosť:</mat-label>
+    <input matInput formControlName="dostupnosť" placeholder="Zadaj dostupnosť...">
+  </mat-form-field>
   <br>
 
-  <button (click)="pridaj()" *ngIf="form.value.id === null">PRIDAJ</button>
-  <button (click)="uprav()" *ngIf="form.value.id !== null">UPRAV</button>
+  <button (click)="pridaj()" *ngIf="form.value.id === null" [disabled]="!this.form.valid">PRIDAJ</button>
+  <button (click)="uprav()" *ngIf="form.value.id !== null" [disabled]="!this.form.valid">UPRAV</button>
   <button (click)="zrus()">ZRUS</button>
   <!---
   ID: <input [(ngModel)]="kniha.id"><br>
