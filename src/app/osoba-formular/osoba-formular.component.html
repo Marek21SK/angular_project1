@@ -1,6 +1,7 @@
 <h1>OSOBY - formular</h1>
 
 <form [formGroup]="form">
+  <div class="form-group">
 
   <!--
   <label>ID:
@@ -9,24 +10,49 @@
   <br>
 -->
 
+  <!--
   <label>Meno:
     <input formControlName="meno">
   </label>
   <br>
+  -->
 
+  <mat-form-field appearance="fill">
+    <mat-label>Meno:</mat-label>
+    <input matInput formControlName="meno" placeholder="Zadaj meno...">
+  </mat-form-field>
+    <br>
+
+    <!--
   <label>Priezvisko:
     <input formControlName="priezvisko">
   </label>
   <br>
+    -->
 
+    <mat-form-field appearance="fill">
+      <mat-label>Priezvisko:</mat-label>
+      <input matInput formControlName="priezvisko" placeholder="Zadaj priezvisko...">
+    </mat-form-field>
+    <br>
+
+    <!--
   <label>Kontakt:
     <input formControlName="kontakt">
   </label>
   <br>
+    -->
 
-  <button (click)="pridaj();" *ngIf="form.value.id === null">PRIDAJ</button>
-  <button (click)="uprav();" *ngIf="form.value.id !== null">UPRAV</button>
+    <mat-form-field appearance="fill">
+      <mat-label>Kontakt:</mat-label>
+      <input matInput formControlName="kontakt" placeholder="Zadaj kontakt...">
+    </mat-form-field>
+    <br>
+
+  <button (click)="pridaj();" *ngIf="form.value.id === null" [disabled]="!this.form.valid">PRIDAJ</button>
+  <button (click)="uprav();" *ngIf="form.value.id !== null" [disabled]="!this.form.valid">UPRAV</button>
   <button (click)="zrus();">ZRUŠ</button>
 
+  </div>
 </form>
 
