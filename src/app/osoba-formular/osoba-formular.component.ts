@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Osoba} from "../models/osoba.model";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {OsobaService} from "../../osoba.service";
 
 @Component({
   selector: 'app-osoba-formular',
@@ -29,7 +30,7 @@ export class OsobaFormularComponent{
 
   form!: FormGroup;
 
-  constructor() {
+  constructor(private osobaService: OsobaService) {
     this.vytvorForm();
   }
 
@@ -71,4 +72,15 @@ export class OsobaFormularComponent{
     public zrus(): void{
     this.form.reset();
   }
+
+/**
+  spracujSubor(files: any){
+    let fs: FileList = files.target.files;
+    console.log('mam: ', fs);
+    let subor = fs.item(0);
+    this.osobaService.nahrajSubor(subor).subscribe(data => {
+      console.log('ok');
+    })
+  }
+ */
 }

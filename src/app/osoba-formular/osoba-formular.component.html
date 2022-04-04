@@ -49,6 +49,13 @@
     </mat-form-field>
     <br>
 
+    <!--
+  <label for="file">
+    Foto
+    <input type="file" id="file" (change)="spracujSubor($event)">
+  </label>
+  -->
+
   <button (click)="pridaj();" *ngIf="form.value.id === null" [disabled]="!this.form.valid">PRIDAJ</button>
   <button (click)="uprav();" *ngIf="form.value.id !== null" [disabled]="!this.form.valid">UPRAV</button>
   <button (click)="zrus();">ZRUŠ</button>

@@ -18,6 +18,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import {ButtonModule} from "primeng/button";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {MatInputModule} from "@angular/material/input";
     HttpClientModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

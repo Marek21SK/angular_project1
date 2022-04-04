@@ -31,4 +31,10 @@ export class OsobaService {
   updateOsoba(osobaId: number, osoba: Osoba): Observable<Osoba>{
     return this.http.put<Osoba>(`${this.apiUrl}/${osobaId}`, osoba);
   }
+
+  /**
+  nahrajSubor(subor: File): Observable<Object>{
+    const formData: FormData = new FormData();
+  }
+   */
 }
