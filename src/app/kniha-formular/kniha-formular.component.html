@@ -1,30 +1,37 @@
-<h1>KNIHY - formulár</h1>
+<h1 class="formNadpis">KNIHY - formulár</h1>
 <br>
-<form [formGroup]="form">
+<br>
+<br>
+<div class="formbackdesign">
+<form class="formdesign" [formGroup]="form">
   <!--
     <label>ID:
       <input formControlName="id">
     </label>
     <br>-->
 
-  <label>Názov:
-    <input formControlName="nazov">
+  <label class="Form">Názov:
+    <input formControlName="nazov" type="text" class="Nknihy" name="NazovKnihy" placeholder="Nazov knihy..." >
   </label>
   <br>
 
-  <label>Autor:
-    <input formControlName="autor">
+  <label class="Form">Autor:
+    <input formControlName="autor" class="Nknihy" placeholder="Meno autora...">
   </label>
   <br>
 
-  <label>Dostupnosť:
-    <input formControlName="dostupnost">
+  <label class="Form">Dostupnosť:
+    <input formControlName="dostupnost" class="Nknihy" placeholder="Dostupnosť...">
   </label>
   <br>
+  <br>
+  <br>
 
-  <button (click)="pridaj()" *ngIf="form.value.id === null">PRIDAJ</button>
-  <button (click)="uprav()" *ngIf="form.value.id !== null">UPRAV</button>
-  <button (click)="zrus()">ZRUS</button>
+  <button class="buttons" (click)="pridaj()" *ngIf="form.value.id === null">PRIDAJ</button>
+  <br>
+  <button class="buttons" (click)="uprav()" *ngIf="form.value.id !== null">UPRAV</button>
+  <br>
+  <button class="buttons" (click)="zrus()">ZRUS</button>
   <!---
   ID: <input [(ngModel)]="kniha.id"><br>
   <br>
@@ -36,3 +43,4 @@
   <br>
   -->
 </form>
+</div>

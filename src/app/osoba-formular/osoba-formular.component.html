@@ -1,5 +1,5 @@
-<h1>OSOBY - formular</h1>
-
+<h1 class="FormO">OSOBY - formular</h1>
+<br>
 <form [formGroup]="form">
   <div class="form-group">
 
@@ -17,7 +17,7 @@
   <br>
   -->
 
-  <mat-form-field appearance="fill">
+  <mat-form-field class="FormCenter" appearance="fill">
     <mat-label>Meno:</mat-label>
     <input matInput formControlName="meno" placeholder="Zadaj meno...">
   </mat-form-field>
@@ -30,7 +30,7 @@
   <br>
     -->
 
-    <mat-form-field appearance="fill">
+    <mat-form-field class="FormCenter" appearance="fill">
       <mat-label>Priezvisko:</mat-label>
       <input matInput formControlName="priezvisko" placeholder="Zadaj priezvisko...">
     </mat-form-field>
@@ -43,15 +43,17 @@
   <br>
     -->
 
-    <mat-form-field appearance="fill">
+    <mat-form-field class="FormCenter" appearance="fill">
       <mat-label>Kontakt:</mat-label>
       <input matInput formControlName="kontakt" placeholder="Zadaj kontakt...">
     </mat-form-field>
     <br>
 
-  <button (click)="pridaj();" *ngIf="form.value.id === null" [disabled]="!this.form.valid">PRIDAJ</button>
-  <button (click)="uprav();" *ngIf="form.value.id !== null" [disabled]="!this.form.valid">UPRAV</button>
-  <button (click)="zrus();">ZRUŠ</button>
+  <button class="buttonsO" (click)="pridaj();" *ngIf="form.value.id === null" [disabled]="!this.form.valid">PRIDAJ</button>
+    <br>
+  <button class="buttonsO" (click)="uprav();" *ngIf="form.value.id !== null" [disabled]="!this.form.valid">UPRAV</button>
+    <br>
+  <button class="buttonsO" (click)="zrus();">ZRUŠ</button>
 
   </div>
 </form>

@@ -1,4 +1,5 @@
-<h1>Knihy</h1>
+<body style="background-color: saddlebrown">
+<h1 class="nadpisKnihy">Knihy</h1>
 <app-kniha-formular [kniha]="knihaNaUpravu"
                     (pridajKnihu)="pridaj($event)"
                     (upravKnihu)="uprav($event)">
@@ -10,8 +11,9 @@
 
 </app-kniha-zoznam>
 
-<br>
 
-<div>
-  <button (click)="chodSpat()">SPÄŤ</button>
+<div style="background-color: saddlebrown">
+  <br>
+  <button class="buttons" (click)="chodSpat()">SPÄŤ</button>
 </div>
+</body>

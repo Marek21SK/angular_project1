@@ -1,0 +1,52 @@
+.formNadpis{
+  text-align: center;
+  font-family: "Verdana";
+  font-weight: bold;
+  font-size: 60px;
+}
+.Nknihy{
+  padding: 10px;
+}
+.Form{
+  font-weight: bold;
+  font-size: 20px;
+  height: 50px;
+  justify-content: center;
+  width: 100%;
+  padding: 30px;
+  margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+}
+.formbackdesign {
+
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 2px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.buttons{
+  font-family: "Verdana";
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 4px;
+  margin-left: 10%;
+  text-align: center;
+  cursor: pointer;
+  display: block;
+  padding: 14px 28px;
+  width: 80%;
+  border: none;
+  background-color: #45a049;
+}
+.buttons:hover {
+  background-color: lightgray;
+  color: black;
+}
