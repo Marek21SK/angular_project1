@@ -6,6 +6,9 @@
 .btn-success{
   width: 800px;
   margin: 20px;
+  font-size: 60px;
+  font-family: Verdana;
+  font-weight: bold;
 }
 .footer{
   text-align: center;
