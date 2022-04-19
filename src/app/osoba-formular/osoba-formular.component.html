@@ -1,53 +1,23 @@
-<h1 class="FormO">OSOBY - formular</h1>
+<h1 class="FormNadpis">OSOBY - formular</h1>
 <br>
-<form [formGroup]="form">
+<div class="formbackdesign">
+<form class="formdesign" [formGroup]="form">
   <div class="form-group">
 
-  <!--
-  <label>ID:
-    <input formControlName="id">
+  <label class="Form0">Meno:
+    <input formControlName="meno" class="Nosoby" placeholder="Zadaj meno...">
   </label>
   <br>
--->
 
-  <!--
-  <label>Meno:
-    <input formControlName="meno">
+  <label class="Form0">Priezvisko:
+    <input formControlName="priezvisko" class="Nosoby" placeholder="Zadaj priezvisko...">
   </label>
   <br>
-  -->
 
-  <mat-form-field class="FormCenter" appearance="fill">
-    <mat-label>Meno:</mat-label>
-    <input matInput formControlName="meno" placeholder="Zadaj meno...">
-  </mat-form-field>
-    <br>
-
-    <!--
-  <label>Priezvisko:
-    <input formControlName="priezvisko">
+  <label class="Form0">Kontakt:
+    <input formControlName="kontakt" class="Nosoby" placeholder="Zadaj kontakt...">
   </label>
   <br>
-    -->
-
-    <mat-form-field class="FormCenter" appearance="fill">
-      <mat-label>Priezvisko:</mat-label>
-      <input matInput formControlName="priezvisko" placeholder="Zadaj priezvisko...">
-    </mat-form-field>
-    <br>
-
-    <!--
-  <label>Kontakt:
-    <input formControlName="kontakt">
-  </label>
-  <br>
-    -->
-
-    <mat-form-field class="FormCenter" appearance="fill">
-      <mat-label>Kontakt:</mat-label>
-      <input matInput formControlName="kontakt" placeholder="Zadaj kontakt...">
-    </mat-form-field>
-    <br>
 
   <button class="buttonsO" (click)="pridaj();" *ngIf="form.value.id === null" [disabled]="!this.form.valid">PRIDAJ</button>
     <br>
@@ -57,4 +27,5 @@
 
   </div>
 </form>
+</div>
 

@@ -16,12 +16,12 @@ export class KnihaService {
     return this.http.get<KnihaZoznam[]>(`${this.apiUrl}`);
   }
 
-  getKniha(knihaId: string): Observable<Kniha>{
+  getKniha(knihaId: number): Observable<Kniha>{
     return this.http.get<Kniha>(`${this.apiUrl}/${knihaId}`);
   }
 
   createKniha(kniha: Kniha): Observable<Kniha>{
-    return this.http.post<Kniha>(`${this.apiUrl}`, {id: kniha.id, autor: kniha.autor, nazov: kniha.nazov, dostupnost: kniha.dostupnost});
+    return this.http.post<Kniha>(`${this.apiUrl}`, kniha);
   }
 
   updateKniha(knihaId: number, kniha: Kniha): Observable<Kniha>{

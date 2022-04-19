@@ -1,15 +1,27 @@
-.FormO{
+.FormNadpis{
   text-align: center;
   font-family: "Verdana";
   font-weight: bold;
-  font-size: 50px;
+  font-size: 60px;
+}
+.Form0{
+  font-weight: bold;
+  font-size: 20px;
+  height: 50px;
+  justify-content: center;
+  width: 100%;
+  padding: 30px;
+  margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .FormCenter{
   display: flex;
   justify-content: center;
 }
-
 .buttonsO{
   font-family: "Verdana";
   font-weight: bold;
@@ -27,4 +39,16 @@
 .buttons:hover {
   background-color: lightgray;
   color: black;
+}
+.Nosoby{
+  padding: 10px;
+}
+.formbackdesign {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 2px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
