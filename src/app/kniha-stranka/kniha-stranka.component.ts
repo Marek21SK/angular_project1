@@ -1,18 +1,21 @@
-import { Component} from '@angular/core';
+import { Component, OnDestroy, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {Kniha} from "../models/kniha.model";
+import {Kniha, KnihaZoznam} from "../models/kniha.model";
 import {KnihaService} from "../../kniha.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-kniha-stranka',
   templateUrl: './kniha-stranka.component.html',
   styleUrls: ['./kniha-stranka.component.css']
 })
-export class KnihaStrankaComponent{
+export class KnihaStrankaComponent implements OnInit, OnDestroy{
 
-  knihy: Kniha[] = []
+  knihy: KnihaZoznam[] = []
 
   knihaNaUpravu?: Kniha;
+
+  private subscription: Subscription = new Subscription();
 
   constructor(private router: Router, private knihaService: KnihaService) { }
 
@@ -20,49 +23,49 @@ export class KnihaStrankaComponent{
     this.refreshKniha();
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
   refreshKniha(): void{
-    this.knihaService.getKnihy().subscribe(data=>{
+    this.subscription.add(this.knihaService.getKnihy().subscribe(data=>{
       console.log('prislo:', data);
-      this.knihy = [];
-      for (const d of data){
-        this.knihy.push({ id: d.id, autor: d.autor, nazov: d.nazov, dostupnost: d.dostupnost});
-      }
-    });
+      this.knihy = data;
+    }));
   }
 
   chodSpat(): void{
     this.router.navigate(['']);
   }
 
-  pridaj(kniha: Kniha){
+  pridaj(kniha: Kniha): void{
     //this.knihy.push(kniha);
-    this.knihaService.createKniha(kniha).subscribe(data =>{
+    this.subscription.add(this.knihaService.createKniha(kniha).subscribe(data =>{
       console.log('prislo', data);
       this.refreshKniha()
-    });
+    }));
   }
 
-  uprav(kniha: Kniha){
-    //const index = this.knihy.findIndex(knihaArray => knihaArray.id === kniha.id);
-    //if (index !== -1){
-      //this.knihy[index] = kniha;
-    this.knihaService.updateKniha(kniha.id, kniha).subscribe(data =>{
-      console.log('upravene', kniha);
-      this.refreshKniha()
-    });
+  uprav(kniha: Kniha): void{
+    if (kniha.id !== undefined){
+      this.subscription.add(this.knihaService.updateKniha(kniha.id, kniha).subscribe(data =>{
+        console.log('prislo', data);
+        this.refreshKniha()
+        }));
+      }
     }
 
-
-  upravZoZoznamu(kniha: Kniha): void{
-    this.knihaNaUpravu = kniha;
+  upravZoZoznamu(knihaId: number): void{
+    this.subscription.add(this.knihaService.getKniha(knihaId).subscribe(data =>{
+      console.log('prislo', data);
+      this.knihaNaUpravu = data;
+    }));
   }
-  zmazZoZoznamu(kniha: Kniha): void{
-    //const index = this.knihy.findIndex(knihaArray => knihaArray.id === kniha.id);
-    //if (index !== -1) {
-      //this.knihy.splice(index, 1);
-    this.knihaService.deleteKniha(kniha.id).subscribe(data =>{
-      console.log('vymazanie', data);
-      this.refreshKniha()
-  });
+  zmazZoZoznamu(knihaId: number): void{
+    if (confirm('Naozaj chcete zmazať knihu?')){
+      this.subscription.add(this.knihaService.deleteKniha(knihaId).subscribe(data =>{
+        this.refreshKniha()
+      }));
     }
+  }
 }
